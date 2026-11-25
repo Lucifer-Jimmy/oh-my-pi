@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>omp</title>
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<div id="app">
+  <header>
+    <span class="brand"><span id="conn" class="conn" title="connecting"></span>omp</span>
+    <span id="model" class="model"></span>
+    <span class="spacer"></span>
+    <label class="field">mode
+      <select id="mode">
+        <option value="default">default</option>
+        <option value="acceptEdits">acceptEdits</option>
+        <option value="plan">plan</option>
+      </select>
+    </label>
+    <button type="button" id="compactBtn" class="ghost" title="Summarize the conversation so far">compact</button>
+    <button type="button" id="modelBtn" class="ghost">model</button>
+    <button type="button" id="sessionsBtn" class="ghost">sessions</button>
+  </header>
+
+  <main id="transcript"></main>
+
+  <section id="dock" hidden></section>
+
+  <footer>
+    <div id="todos" class="todos" hidden></div>
+    <form id="composer" autocomplete="off">
+      <textarea id="input" rows="1" placeholder="Ask anything · Enter sends · Shift+Enter for a new line"></textarea>
+      <div class="actions">
+        <span id="hint" class="hint"></span>
+        <button type="button" id="stopBtn" class="danger" hidden>Stop</button>
+        <button type="submit" id="sendBtn">Send</button>
+      </div>
+    </form>
+    <div class="status">
+      <span id="statusLeft"></span>
+      <span id="statusRight"></span>
+    </div>
+  </footer>
+</div>
+
+<div id="toast" class="toast" hidden></div>
+
+<dialog id="sessionsDialog">
+  <div class="dialog-head"><h2>Sessions</h2><button type="button" class="ghost" data-close>close</button></div>
+  <ul id="sessionList" class="sessions"></ul>
+  <div class="dialog-foot"><button type="button" id="newSessionBtn">New session</button></div>
+</dialog>
+
+<dialog id="modelDialog">
+  <form method="dialog" id="modelForm">
+    <div class="dialog-head"><h2>Model</h2><button type="button" class="ghost" data-close>close</button></div>
+    <p class="muted">provider/model, optionally with :thinking-level</p>
+    <input id="modelInput" autocomplete="off" spellcheck="false">
+    <div class="dialog-foot"><button type="submit">Switch</button></div>
+  </form>
+</dialog>
+
+<script src="/app.js"></script>
+</body>
+</html>
